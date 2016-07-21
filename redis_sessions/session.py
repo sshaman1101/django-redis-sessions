@@ -1,4 +1,4 @@
-import redis
+import redis, json
 
 try:
     from django.utils.encoding import force_unicode
