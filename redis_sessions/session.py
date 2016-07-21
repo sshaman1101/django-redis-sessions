@@ -128,4 +128,11 @@ class SessionStore(SessionBase):
 
     def decode(self, session_data):
         values = json.loads(session_data)
-        return values['values']
+        try:
+            data = values['values']
+            if data:
+                return data
+            else:
+                return {}
+        except:
+            return {}
