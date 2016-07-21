@@ -124,7 +124,8 @@ class SessionStore(SessionBase):
         return ':'.join([prefix, session_key])
 
     def encode(self, session_dict):
-        return json.dumps(session_dict)
+        return json.dumps({'values': session_dict})
 
     def decode(self, session_data):
-        return json.loads(session_data)
+        values = json.loads(session_data)
+        return values['values']
