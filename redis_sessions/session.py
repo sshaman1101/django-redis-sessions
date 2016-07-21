@@ -28,7 +28,7 @@ elif settings.SESSION_REDIS_URL is not None:
         socket_timeout=settings.SESSION_REDIS_SOCKET_TIMEOUT
     )
 elif settings.SESSION_REDIS_UNIX_DOMAIN_SOCKET_PATH is None:
-    
+
     redis_server = redis.StrictRedis(
         host=settings.SESSION_REDIS_HOST,
         port=settings.SESSION_REDIS_PORT,
@@ -122,3 +122,9 @@ class SessionStore(SessionBase):
         if not prefix:
             return session_key
         return ':'.join([prefix, session_key])
+
+    def encode(self, session_dict):
+        return json.dumps(session_dict)
+
+    def decode(self, session_data):
+        return json.loads(session_data)
