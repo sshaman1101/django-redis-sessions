@@ -16,7 +16,7 @@ setup(
     keywords='django, sessions,',
     author='Martin Rusev',
     author_email='martin@amon.cx',
-    url='http://github.com/martinrusev/django-redis-sessions',
+    url='https://github.com/sshaman1101/django-redis-sessions',
     license='BSD',
     packages=packages,
     zip_safe=False,
